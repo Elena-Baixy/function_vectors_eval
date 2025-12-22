@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "GT1_ModelGeneralization": "FAIL",
+    "GT2_DataGeneralization": "PASS",
+    "GT3_MethodGeneralization": "PASS"
+  },
+  "Rationale": {
+    "GT1_ModelGeneralization": "Function vectors did not transfer to Pythia-2.8B (a model not in the original paper). When applying the method to compute top causal heads and extract FVs for Pythia-2.8B, the resulting FV did not improve performance over baseline in either shuffled-label or zero-shot settings. The method requires model-specific causal analysis, and the neuron-level findings (which specific heads carry task information) do not generalize across model architectures.",
+    "GT2_DataGeneralization": "Function vectors successfully worked on new data instances not in the original dataset. Key evidence: For the antonym pair 'cacophony -> harmony' (not in training data), zero-shot alone produced 'cac' (wrong), while zero-shot+FV produced 'harmony' (correct). This demonstrates the FV encodes the task function rather than memorizing specific input-output pairs.",
+    "GT3_MethodGeneralization": "The function vector extraction method successfully generalized to a different task type (country-capital vs antonym). Key evidence: For 'Libya -> Tripoli', zero-shot alone produced 'Libya' (just repeating input), while zero-shot+FV produced 'Tripoli' (correct). This shows the method for extracting task-encoding vectors from top causal attention heads works across different ICL task types."
+  }
+}

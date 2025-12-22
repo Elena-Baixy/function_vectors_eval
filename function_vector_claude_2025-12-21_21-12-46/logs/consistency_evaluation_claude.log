@@ -1,0 +1,35 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The consistency evaluation is complete. Here's a summary:
+
+## Consistency Evaluation Results
+
+I've created two files under `/net/scratch2/smallyan/function_vectors_eval/evaluation/`:
+
+### 1. `self_matching.ipynb`
+Contains the complete analysis including:
+- Repository structure overview
+- CS1 verification with numerical claim comparisons
+- CS2 verification with implementation mapping
+- Detailed analysis of the missing vector algebra composition code
+
+### 2. `consistency_evaluation.json`
+```json
+{
+    "Checklist": {
+        "CS1_Results_vs_Conclusion": "PASS",
+        "CS2_Plan_vs_Implementation": "FAIL"
+    },
+    "Rationale": {...}
+}
+```
+
+## Binary Checklist Summary
+
+| Criteria | Result | Reason |
+|----------|--------|--------|
+| **CS1** | **PASS** | All numerical claims in plan.md match documentation.pdf (Tables 2, 3, 6, 7) |
+| **CS2** | **FAIL** | Vector algebra composition (computing v*BD = vAD + vBC - vAC for list-oriented tasks) is described in the plan but not implemented in the codebase |
+
+The session used CUDA on an NVIDIA A40 GPU as requested. Both evaluation files have been saved to the repository's `evaluation/` directory.

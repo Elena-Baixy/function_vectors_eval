@@ -1,0 +1,25 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+I have completed the generalizability evaluation. Here's a summary:
+
+## Generalizability Evaluation Results
+
+### Checklist Results:
+| Criterion | Result |
+|-----------|--------|
+| **GT1: Model Generalization** | FAIL |
+| **GT2: Data Generalization** | PASS |
+| **GT3: Method Generalization** | PASS |
+
+### Key Findings:
+
+**GT1 (FAIL)**: Function vectors did not transfer to Pythia-2.8B. When I applied the causal mediation analysis to identify top heads and extract FVs for this new model, the resulting FV did not improve performance over baseline.
+
+**GT2 (PASS)**: The FV successfully worked on new data not in the original dataset. Key example: For "cacophony → harmony", zero-shot alone produced "cac" (wrong), while zero-shot+FV produced "harmony" (correct).
+
+**GT3 (PASS)**: The method generalized to a different task type (country-capital). Key example: For "Libya → Tripoli", zero-shot alone produced "Libya" (wrong), while zero-shot+FV produced "Tripoli" (correct).
+
+### Output Files Created:
+1. `/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval_summary.json`
+2. `/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval.ipynb`
