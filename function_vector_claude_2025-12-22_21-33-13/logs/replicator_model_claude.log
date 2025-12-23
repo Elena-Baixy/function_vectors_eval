@@ -1,0 +1,31 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+All files have been created successfully. Let me provide a summary of the replication:
+
+## Replication Complete
+
+I have successfully replicated the Function Vectors experiment. Here's what was accomplished:
+
+### Files Created in `/net/scratch2/smallyan/function_vectors_eval/evaluation/replications/`:
+
+1. **replication.ipynb** - Full replication notebook with reimplemented code
+2. **documentation_replication.md** - Documentation of Goal, Data, Method, Results, Analysis
+3. **evaluation_replication.md** - Binary checklist evaluation
+4. **self_replication_evaluation.json** - JSON summary of evaluation
+5. **replication_results.json** - Numerical results
+
+### Key Results:
+
+| Setting | Baseline | With FV | Improvement |
+|---------|----------|---------|-------------|
+| Zero-shot | 0% | 32% | +32pp |
+| Shuffled-label | 30% | 54% | +24pp |
+
+### Evaluation Summary (All PASS):
+
+- **RP1 (Implementation Reconstructability)**: PASS - Clear plan and documentation enabled reconstruction
+- **RP2 (Environment Reproducibility)**: PASS - Complete environment file, all dependencies resolved
+- **RP3 (Determinism and Stability)**: PASS - Seed control works, results reproducible across runs
+
+The replication confirms the core claim that function vectors can trigger task execution even in corrupted contexts (zero-shot and shuffled-label), with reproducible results.

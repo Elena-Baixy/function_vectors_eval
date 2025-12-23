@@ -1,0 +1,25 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+I have completed the Generalizability Evaluation for the circuit analysis repository. Here's the summary:
+
+## Generalizability Evaluation Complete
+
+### Results Summary
+
+| Criterion | Result | Key Evidence |
+|-----------|--------|--------------|
+| **GT1: Model Generalization** | **PASS** | Function vectors work on Pythia-2.8B (not in original paper). Successfully predicted "distinguishable" as antonym of "indistinguishable" with 6x probability boost. |
+| **GT2: Data Generalization** | **PASS** | Function vectors work on novel data not in the dataset. "verbose" → "concise" succeeded with probability boost from 0.085 to 0.139. |
+| **GT3: Method Generalization** | **PASS** | The causal mediation + FV extraction method applies to other tasks. Country-capital task achieved 2/3 success rate with different task-specific attention heads. |
+
+### Output Files Created
+
+1. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval_summary.json`**
+   - Contains the checklist (PASS/FAIL) and detailed rationales
+
+2. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval.ipynb`**
+   - Full evaluation notebook with code, results, and analysis
+
+### Overall Assessment
+The function vector findings from the paper **generalize well** beyond the original experimental setting. The neuron-level findings (attention heads in middle layers transport task information) transfer across models, data, and tasks.

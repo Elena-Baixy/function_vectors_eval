@@ -1,0 +1,35 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+I have completed the consistency evaluation for the Function Vectors research project. Here's a summary:
+
+## Consistency Evaluation Results
+
+**Repository:** `/net/scratch2/smallyan/function_vectors_eval`
+
+### Binary Checklist
+
+| Criterion | Result |
+|-----------|--------|
+| **CS1: Results vs Conclusion** | **PASS** |
+| **CS2: Plan vs Implementation** | **PASS** |
+
+### Key Findings
+
+**CS1 - No mismatches found:**
+- FV extraction method correctly uses sum of top 10 attention heads for GPT-J
+- Top head AIE score (0.0587) matches documented value (~0.053-0.06)
+- Intervention layer EDIT_LAYER=9 matches documented L/3 for GPT-J
+- Multi-model support (GPT-J, Llama 2, GPT-NeoX) matches documentation
+- Vocabulary reconstruction and vector algebra implementations exist
+
+**CS2 - All plan steps implemented:**
+- All 5 methodology steps have corresponding code implementations
+- All 6 experimental evaluation types are supported
+- 57 diverse ICL tasks available (exceeds 40+ requirement)
+- Demo notebook demonstrates full pipeline
+
+### Output Files Created
+
+1. **`evaluation/self_matching.ipynb`** - Detailed evaluation notebook with verification code and summary tables
+2. **`evaluation/consistency_evaluation.json`** - Structured JSON with PASS/FAIL results and rationale

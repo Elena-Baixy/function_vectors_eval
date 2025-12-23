@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "GT1_ModelGeneralization": "PASS",
+    "GT2_DataGeneralization": "PASS",
+    "GT3_MethodGeneralization": "PASS"
+  },
+  "Rationale": {
+    "GT1_ModelGeneralization": "Function vectors successfully extracted and applied on Pythia-2.8B, a model not used in the original paper. The method identified top attention heads in middle layers (consistent with paper findings) and the FV intervention correctly triggered antonym behavior (e.g., 'indistinguishable' -> 'distinguishable' with 6x probability boost from 0.032 to 0.193).",
+    "GT2_DataGeneralization": "Function vectors work on completely novel word pairs not appearing in the original dataset. Testing on 'verbose' -> 'concise' (verified both words absent from train/valid/test data) showed successful prediction with FV boosting probability from 0.085 to 0.139.",
+    "GT3_MethodGeneralization": "The causal mediation + function vector extraction method successfully generalizes to different tasks. Applied to country-capital task, the method identified different task-specific attention heads and achieved 2/3 success rate on test examples (Sierra Leone -> Freetown, Libya -> Tripoli)."
+  }
+}

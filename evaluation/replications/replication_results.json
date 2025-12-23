@@ -1,0 +1,28 @@
+{
+  "task": "antonym",
+  "model": "EleutherAI/gpt-j-6b",
+  "edit_layer": 9,
+  "n_top_heads": 10,
+  "n_icl_examples_for_fv": 10,
+  "n_trials_for_fv": 100,
+  "evaluation": {
+    "zero_shot": {
+      "n_eval": 50,
+      "baseline_top1_acc": 0.0,
+      "baseline_top3_acc": 0.08,
+      "fv_top1_acc": 0.32,
+      "fv_top3_acc": 0.58
+    },
+    "shuffled_label_10shot": {
+      "n_eval": 50,
+      "baseline_top1_acc": 0.3,
+      "baseline_top3_acc": 0.5,
+      "fv_top1_acc": 0.54,
+      "fv_top3_acc": 0.68
+    }
+  },
+  "reproducibility": {
+    "verified": true,
+    "note": "Results are identical across two runs with same seed"
+  }
+}
