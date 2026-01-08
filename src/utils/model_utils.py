@@ -40,7 +40,7 @@ def load_gpt_model_and_tokenizer(model_name:str, device='cuda', revision=None):
     elif 'gpt-j' in model_name.lower():
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         tokenizer.pad_token = tokenizer.eos_token
-        model = AutoModelForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True).to(device)
+        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float16, low_cpu_mem_usage=True, device_map="cuda:0")
 
         MODEL_CONFIG={"n_heads":model.config.n_head,
                       "n_layers":model.config.n_layer,
