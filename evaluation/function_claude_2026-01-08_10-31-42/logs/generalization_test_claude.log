@@ -1,0 +1,26 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The generalizability evaluation is complete. Here's a summary of the results:
+
+## Generalizability Evaluation Summary
+
+### Results
+
+| Criterion | Result |
+|-----------|--------|
+| **GT1: Model Generalization** | **FAIL** |
+| **GT2: Data Generalization** | **PASS** |
+| **GT3: Method Generalization** | **PASS** |
+
+### Key Findings
+
+**GT1 (FAIL)**: The "universal" attention heads are actually model-family-specific. The `compute_universal_function_vector()` function has hardcoded top_heads only for GPT-J, Llama-2, and GPT-NeoX. New models require re-running expensive causal mediation analysis. Cache permission issues also prevented empirical verification with new models.
+
+**GT2 (PASS)**: The methodology is inherently data-agnostic. Function vectors capture task semantics rather than specific input-output mappings. New data instances ('ephemeral'→'eternal', 'synchronous'→'asynchronous', 'benevolent'→'malevolent') could be tested without modification.
+
+**GT3 (PASS)**: The method works across 57+ diverse tasks with consistent methodology. The code is task-agnostic and can be applied to new similar tasks (e.g., scientific name→common name, comparative→superlative).
+
+### Output Files Created
+1. `/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval_summary.json`
+2. `/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval.ipynb`

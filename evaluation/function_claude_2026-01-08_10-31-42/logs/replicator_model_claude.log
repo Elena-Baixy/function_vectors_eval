@@ -1,0 +1,36 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+## Replication Complete
+
+I have successfully completed the replication of the Function Vectors experiment. Here's a summary:
+
+### Files Created
+
+All outputs are saved in `/net/scratch2/smallyan/function_vectors_eval/evaluation/replications/`:
+
+1. **replication.ipynb** - The reimplementation notebook demonstrating:
+   - Function vector extraction from GPT-J 6B
+   - Testing on ICL, shuffled-label, and zero-shot contexts
+   - Natural text portability
+
+2. **documentation_replication.md** - Documentation covering:
+   - Goal, Data, Method, Results, and Analysis sections
+   - Comparison with paper results
+
+3. **evaluation_replication.md** - Evaluation with binary checklist:
+   - RP1 (Reconstructability): **PASS**
+   - RP2 (Environment): **PASS**
+   - RP3 (Determinism): **PASS**
+   - RP4 (Demo): **PASS**
+
+4. **self_replication_evaluation.json** - JSON summary of the evaluation
+
+### Key Results
+
+| Context | Baseline | With FV | Improvement |
+|---------|----------|---------|-------------|
+| Shuffled-Label ICL | 40.0% | 60.0% | +20.0% |
+| Zero-Shot | 2.0% | 44.0% | +42.0% |
+
+The replication confirms the paper's core finding: function vectors extracted from top causal attention heads can successfully transfer task understanding across contexts, enabling task execution in zero-shot and corrupted ICL settings.
