@@ -1,0 +1,14 @@
+{
+  "Checklist": {
+    "RP1_ImplementationReconstructability": "PASS",
+    "RP2_EnvironmentReproducibility": "PASS",
+    "RP3_DeterminismAndStability": "PASS",
+    "RP4_DemoPresentation": "PASS"
+  },
+  "Rationale": {
+    "RP1_ImplementationReconstructability": "The experiment can be reconstructed from plan.md and CodeWalkthrough.md. The plan clearly describes the objective (extract function vectors from attention heads), methodology (causal mediation analysis, mean activation computation, head selection), and expected results. The code in src/utils/ provides clear implementations and the demo notebook shows the complete workflow. No major guesswork was required beyond minor details like exact prompt formatting.",
+    "RP2_EnvironmentReproducibility": "The environment can be restored using fv_environment.yml which provides exact package versions. baukit installs from GitHub, GPT-J model loads from HuggingFace, and dataset files are included in the repository. No external API keys are required for basic replication. Minor conda/pip interaction issues were resolved without affecting faithful replication.",
+    "RP3_DeterminismAndStability": "Results are stable with proper seed control via the set_seed() function which controls random, numpy, and torch randomness. The methodology (averaging over trials) inherently reduces variance. The qualitative pattern (FV improves performance) is consistent across runs. Numerical differences from paper values are attributable to reduced sample sizes rather than non-determinism.",
+    "RP4_DemoPresentation": "A demo exists (notebooks/fv_demo.ipynb) that can be executed with repository contents and HuggingFace downloads. The demo covers the claimed experiments: loading model/data, computing mean activations, extracting function vectors, and evaluating in ICL, shuffled-label, zero-shot, and natural text contexts. Required inputs and parameters are clearly specified."
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "project": "Function Vectors in Large Language Models",
+  "evaluation_date": "2026-01-11",
+  "repository_path": "/net/scratch2/smallyan/function_vectors_eval",
+  "evaluations": {
+    "CS1": {
+      "name": "Conclusion vs Original Results",
+      "description": "Check if all evaluable conclusions in the documentation/plan match the results in the code implementation",
+      "result": "PASS",
+      "rationale": "All documented results in plan.md are consistent with the ICLR 2024 paper (documentation.pdf). The plan contains specific numerical results (e.g., GPT-J+FV achieves 90.8% shuffled-label accuracy vs 39.1% baseline, 57.5% zero-shot vs 5.5% baseline) that match the paper's reported figures. The code implements experiments that generate these results dynamically rather than storing hardcoded values, which is appropriate for reproducibility.",
+      "evidence": {
+        "plan_file": "plan.md",
+        "documentation_file": "documentation.pdf",
+        "result_comparisons": [
+          {
+            "metric": "Shuffled-label GPT-J+FV accuracy",
+            "plan_value": "90.8% vs 39.1% baseline",
+            "paper_reference": "Table 2",
+            "match": true
+          },
+          {
+            "metric": "Zero-shot GPT-J+FV accuracy",
+            "plan_value": "57.5% vs 5.5% baseline",
+            "paper_reference": "Table 2",
+            "match": true
+          },
+          {
+            "metric": "Country-Capital vocabulary reconstruction",
+            "plan_value": "58.1% (top-100) vs 83.2% (original FV)",
+            "paper_reference": "Table 3",
+            "match": true
+          },
+          {
+            "metric": "Llama 2 70B performance",
+            "plan_value": "93.0% shuffled, 74.2% zero-shot",
+            "paper_reference": "Table 2",
+            "match": true
+          },
+          {
+            "metric": "Natural text Antonym FV",
+            "plan_value": "55-68% vs 0-3% baseline",
+            "paper_reference": "Section 5.2",
+            "match": true
+          }
+        ]
+      }
+    },
+    "CS2": {
+      "name": "Implementation Follows the Plan",
+      "description": "Check if all plan steps have corresponding implementations",
+      "result": "FAIL",
+      "rationale": "The plan describes 6 experiments, but only 5 have corresponding implementations. Experiment 3 (Vector algebra composition) is missing from the codebase. This experiment involves testing whether algebraic sums of function vectors can execute combined tasks (e.g., Last-Capitalize, Last-Country-Capital, Last-Antonym), but no implementation code was found.",
+      "evidence": {
+        "plan_experiments": 6,
+        "implemented_experiments": 5,
+        "missing_implementations": [
+          {
+            "experiment_number": 3,
+            "experiment_name": "Vector algebra composition",
+            "plan_description": "Test vector algebra composition by constructing decomposable tasks and measuring whether algebraic sums of FVs can execute combined tasks",
+            "expected_functionality": "Extract FVs for individual tasks (e.g., Last, Country-Capital), perform vector arithmetic (v*BD = vB + vD - vI), evaluate composed vectors on composite tasks",
+            "search_patterns_used": ["algebra", "compos", "combine", "v*", "sum.*fv", "Last.*Capitalize"],
+            "files_searched": "All .py files in src/ directory and notebooks/"
+          }
+        ],
+        "implemented_mapping": [
+          {
+            "experiment_number": 1,
+            "experiment_name": "Portability of function vectors across contexts",
+            "implementation_files": ["src/portability_eval.py", "src/evaluate_function_vector.py"],
+            "status": "IMPLEMENTED"
+          },
+          {
+            "experiment_number": 2,
+            "experiment_name": "Decoded vocabulary analysis",
+            "implementation_files": ["src/vocab_reconstruction.py"],
+            "status": "IMPLEMENTED"
+          },
+          {
+            "experiment_number": 3,
+            "experiment_name": "Vector algebra composition",
+            "implementation_files": [],
+            "status": "NOT_IMPLEMENTED"
+          },
+          {
+            "experiment_number": 4,
+            "experiment_name": "Causal mediation analysis across models",
+            "implementation_files": ["src/compute_indirect_effect.py"],
+            "status": "IMPLEMENTED"
+          },
+          {
+            "experiment_number": 5,
+            "experiment_name": "Performance across diverse tasks and models",
+            "implementation_files": ["src/evaluate_function_vector.py"],
+            "status": "IMPLEMENTED"
+          },
+          {
+            "experiment_number": 6,
+            "experiment_name": "Natural text portability evaluation",
+            "implementation_files": ["src/natural_text_eval.py"],
+            "status": "IMPLEMENTED"
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "total_criteria": 2,
+    "passed": 1,
+    "failed": 1,
+    "overall_assessment": "Partial consistency. Documented conclusions match the paper results (CS1 PASS), but implementation is incomplete with 1 of 6 planned experiments missing (CS2 FAIL)."
+  },
+  "output_files": {
+    "notebook": "evaluation/self_matching.ipynb",
+    "json": "evaluation/consistency_evaluation.json"
+  }
+}

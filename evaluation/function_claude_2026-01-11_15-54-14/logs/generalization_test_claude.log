@@ -1,0 +1,33 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The generalizability evaluation is complete. Here's a summary of the results:
+
+## Generalizability Evaluation Summary
+
+### Final Results
+
+| Criterion | Result |
+|-----------|--------|
+| **GT1: Model Generalization** | **PASS** |
+| **GT2: Data Generalization** | **PASS** |
+| **GT3: Method Generalization** | **PASS** |
+
+### Key Findings
+
+**GT1 (New Model)**: Successfully tested function vectors on Pythia 1.4B, which was not used in the original paper (GPT-J, GPT-NeoX 20B, Llama 2). The method showed consistent 3.87x average improvement in target token probability.
+
+**GT2 (New Data)**: Function vectors work on completely novel antonym pairs not in the training dataset:
+- `verbose` → `terse`: 7.28x improvement
+- `gregarious` → `solitary`: 94.38x improvement  
+- `cacophony` → `harmony`: 45.88x improvement
+
+**GT3 (Method Generalization)**: The function vector extraction method successfully applies to multiple task types:
+- Country-Capital: 448.95x improvement
+- English-French translation: 1885.89x improvement
+- Sentiment analysis: 2788.35x improvement
+
+### Output Files
+
+1. **Summary JSON**: `/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval_summary.json`
+2. **Evaluation Notebook**: `/net/scratch2/smallyan/function_vectors_eval/evaluation/generalization_eval.ipynb`

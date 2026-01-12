@@ -1,0 +1,22 @@
+{
+  "model": "EleutherAI/gpt-j-6b",
+  "task": "antonym",
+  "intervention_layer": 9,
+  "num_top_heads": 10,
+  "num_trials_for_mean_activations": 50,
+  "num_evaluation_samples": 30,
+  "shuffled_label_icl": {
+    "baseline_accuracy": 0.3,
+    "fv_accuracy": 0.6333333333333333
+  },
+  "zero_shot": {
+    "baseline_accuracy": 0.03333333333333333,
+    "fv_accuracy": 0.3333333333333333
+  },
+  "paper_reference": {
+    "shuffled_label_baseline": 0.39,
+    "shuffled_label_fv": 0.91,
+    "zero_shot_baseline": 0.06,
+    "zero_shot_fv": 0.58
+  }
+}
