@@ -1,0 +1,41 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The replication task is complete. Here's a summary of what was accomplished:
+
+## Replication Summary
+
+### Task
+Replicated the "Function Vectors in Large Language Models" paper (Todd et al., ICLR 2024) from the repository at `/net/scratch2/smallyan/function_vectors_eval`.
+
+### What Was Done
+1. **Explored the repository** to understand the structure (plan.md, CodeWalkthrough.md, demo notebook, utility files)
+2. **Reimplemented from scratch** (without copying code verbatim):
+   - ICL dataset loading and prompt construction
+   - Model loading with hook configuration
+   - Activation extraction using baukit
+   - Function vector computation from mean head activations
+   - Intervention mechanism to add FVs during inference
+3. **Tested on two tasks**: Antonym and Country-Capital
+4. **Evaluated in multiple contexts**: Clean ICL, shuffled-label, zero-shot, and natural text
+
+### Results
+| Task | Context | Baseline | + FV |
+|------|---------|----------|------|
+| Antonym | Shuffled-label | 30.0% | 54.0% |
+| Antonym | Zero-shot | 0.0% | 26.0% |
+| Country-Capital | Zero-shot | 7.1% | 83.3% |
+
+### Output Files Created
+All files saved to `/net/scratch2/smallyan/function_vectors_eval/evaluation/replications/`:
+- `replication.ipynb` - The reimplementation notebook
+- `documentation_replication.md` - Documentation of methods and results
+- `evaluation_replication.md` - Evaluation with binary checklist
+- `self_replication_evaluation.json` - JSON summary
+
+### Evaluation
+All four criteria passed:
+- **RP1**: PASS - Implementation reconstructable from plan and code walk
+- **RP2**: PASS - Environment reproducible with provided configs
+- **RP3**: PASS - Results stable with controlled randomness
+- **RP4**: PASS - Demo is executable and demonstrates claimed results

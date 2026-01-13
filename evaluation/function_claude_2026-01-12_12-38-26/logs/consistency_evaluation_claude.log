@@ -1,0 +1,36 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+I've completed the consistency evaluation for the function_vectors_eval research project. Here's a summary:
+
+## Results
+
+**Both checklist items PASS:**
+
+| Checklist | Result |
+|-----------|--------|
+| CS1: Conclusion vs Original Results | **PASS** |
+| CS2: Implementation Follows the Plan | **PASS** |
+
+## Files Created
+
+1. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/consistency_evaluation.json`** - Contains the binary checklist results and rationale
+
+2. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/self_matching.ipynb`** - Contains the full analysis with:
+   - Verification of all plan claims against documentation
+   - Implementation evidence for all methodology steps
+   - Summary tables and detailed findings
+
+## Key Findings
+
+**CS1**: All numerical claims in the plan.md match the results in the documentation (ICLR 2024 paper), including:
+- Shuffled-label accuracy (90.8% vs 39.1% baseline)
+- Zero-shot accuracy (57.5% vs 5.5% baseline)
+- Vocabulary reconstruction results
+- Vector algebra composition results
+
+**CS2**: All 4 methodology steps and 6 experiments from the plan are implemented in the codebase:
+- Causal mediation analysis (compute_indirect_effect.py)
+- Multi-model support (GPT-J, GPT-NeoX, Llama 2 variants)
+- 57 diverse ICL tasks (29 abstractive + 28 extractive)
+- Vocabulary reconstruction, portability, and natural text evaluation scripts
