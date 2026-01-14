@@ -1,0 +1,40 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The consistency evaluation is complete. Here's a summary of the results:
+
+## Consistency Evaluation Results
+
+**Repository:** `/net/scratch2/smallyan/function_vectors_eval`
+
+### Binary Checklist
+
+| Criterion | Result |
+|-----------|--------|
+| **CS1: Results vs Conclusion** | **PASS** |
+| **CS2: Plan vs Implementation** | **PASS** |
+
+### Key Findings
+
+**CS1 - Results vs Conclusion (PASS):**
+All evaluable conclusions in the documentation (ICLR 2024 paper) match the expected results in the plan file:
+- GPT-J+FV shuffled-label: 90.8% ✓
+- GPT-J+FV zero-shot: 57.5% ✓  
+- 34 additional tasks: 80.4%/46.1% ✓
+- Vocab reconstruction: 58.1% vs 83.2% ✓
+- Vector algebra composition: 0.60 vs 0.32 ICL ✓
+- Natural text: 55-68% vs 0-3% baseline ✓
+
+**CS2 - Plan vs Implementation (PASS):**
+All plan steps have corresponding implementations:
+- Causal mediation analysis → `compute_indirect_effect.py`, `extract_utils.py`
+- Testing across models/tasks → `evaluate_function_vector.py`, `model_utils.py`
+- FV vocab analysis → `vocab_reconstruction.py`
+- Vector algebra → `intervention_utils.py`
+- Template portability → `portability_eval.py`
+- Natural text evaluation → `natural_text_eval.py`
+
+### Output Files Created
+
+1. `/net/scratch2/smallyan/function_vectors_eval/evaluation/self_matching.ipynb`
+2. `/net/scratch2/smallyan/function_vectors_eval/evaluation/consistency_evaluation.json`
