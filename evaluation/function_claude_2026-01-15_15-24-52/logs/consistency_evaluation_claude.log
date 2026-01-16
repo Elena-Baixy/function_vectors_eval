@@ -1,0 +1,25 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The consistency evaluation is complete. Here's a summary of what was done:
+
+## Consistency Evaluation Results
+
+I analyzed the repository at `/net/scratch2/smallyan/function_vectors_eval` which contains a replication of the "Function Vectors in Large Language Models" paper (ICLR 2024).
+
+### Results:
+
+| Checklist | Result |
+|-----------|--------|
+| **CS1: Results vs Conclusion** | **PASS** |
+| **CS2: Plan vs Implementation** | **FAIL** |
+
+### CS1 (PASS) Rationale:
+All evaluable conclusions in the documentation match the recorded results. The key numerical results (FV performance: 90.8% shuffled-label, 57.5% zero-shot for GPT-J; natural text portability: 55-68% for Antonym; vocabulary reconstruction; vector algebra composition results) all align between conclusions and tabulated experimental results.
+
+### CS2 (FAIL) Rationale:
+The plan specifies 4 methodology steps and 6 experiments. **Step 4 (Vector algebra composition)** is missing from the implementation. While the plan describes experiments combining FVs algebraically (v*BD = vAD + vBC - vAC) to create composed vectors for list-oriented tasks, no implementation script exists to perform this experiment. The other 5 experiments are fully implemented.
+
+### Output Files Created:
+1. `/net/scratch2/smallyan/function_vectors_eval/evaluation/self_matching.ipynb`
+2. `/net/scratch2/smallyan/function_vectors_eval/evaluation/consistency_evaluation.json`
