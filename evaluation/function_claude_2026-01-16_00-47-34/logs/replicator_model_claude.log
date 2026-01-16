@@ -1,0 +1,23 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The documentation-only replication evaluation task is **complete**. 
+
+## Summary
+
+**Evaluation Results for Function Vectors in Large Language Models (ICLR 2024):**
+
+| Criterion | Result |
+|-----------|--------|
+| RP1 (Implementation Reconstructability) | **PASS** |
+| RP2 (Environment Reproducibility) | **PASS** |
+| RP3 (Determinism and Stability) | **PASS** |
+
+All three replication criteria passed based on the documentation alone. The paper provides:
+- Complete mathematical formulations and algorithmic details (RP1)
+- Explicit model specifications, dataset sources, and preprocessing details (RP2)  
+- Standard deviations across 5 random seeds and consistent results across architectures (RP3)
+
+Output files saved to:
+- `/net/scratch2/smallyan/function_vectors_eval/doc_only_evaluation/replication_evaluation.md`
+- `/net/scratch2/smallyan/function_vectors_eval/doc_only_evaluation/self_replication_evaluation.json`

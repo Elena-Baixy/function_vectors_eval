@@ -1,0 +1,37 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The generalization evaluation is complete. Here's a summary of the results:
+
+## Generalization Evaluation Summary
+
+I evaluated the Function Vectors repository for generalizability using static inspection (no code execution).
+
+### Results
+
+| Criterion | Verdict |
+|-----------|---------|
+| **GT1**: Generalization to a New Model | **FAIL** |
+| **GT2**: Generalization to New Data | **FAIL** |
+| **GT3**: Method/Specificity Generalizability | **FAIL** |
+
+### Key Findings
+
+The repository demonstrates **extensive empirical testing** across:
+- 5+ model architectures (GPT-J, GPT-NeoX, Llama 2 variants)
+- 40+ diverse ICL tasks (abstractive and extractive)
+- Multiple contexts (ICL, zero-shot, shuffled-label, natural text)
+
+However, all three criteria fail because the repository lacks:
+
+1. **GT1 (Model)**: No mechanistic reasoning explaining WHY function vectors transfer across architectures - only empirical observations that "top heads cluster in middle layers"
+
+2. **GT2 (Data)**: No explicit scope conditions or assumptions about data properties required for generalization - just empirical diversity
+
+3. **GT3 (Method)**: No theoretical justification for when the causal mediation approach would/wouldn't work - no boundary conditions specified
+
+### Output Files
+
+Both files have been created at:
+- `/net/scratch2/smallyan/function_vectors_eval/no_exe_evaluation/generalization_eval.ipynb`
+- `/net/scratch2/smallyan/function_vectors_eval/no_exe_evaluation/generalization_eval_summary.json`

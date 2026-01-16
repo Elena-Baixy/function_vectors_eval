@@ -1,0 +1,36 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The consistency evaluation is complete. Here's a summary of what was done:
+
+## Summary
+
+I completed the consistency evaluation for the Function Vectors research project at `/net/scratch2/smallyan/function_vectors_eval`.
+
+### Output Files Created:
+
+1. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/self_matching.ipynb`** - Contains the complete analysis with 23 cells documenting the evaluation process
+
+2. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/consistency_evaluation.json`** - Structured JSON with checklist results
+
+### Checklist Results:
+
+| Criterion | Status |
+|-----------|--------|
+| **CS1: Results vs Conclusion** | PASS |
+| **CS2: Plan vs Implementation** | PASS |
+| **CS3: Effect Size** | PASS |
+| **CS4: Justification** | PASS |
+| **CS5: Statistical Significance** | PASS |
+
+### Key Findings:
+
+- **CS1**: The documentation (ICLR 2024 paper) and plan report consistent quantitative results. The implementation code correctly follows the documented methodology.
+
+- **CS2**: All methodology steps from the plan are implemented in the codebase (causal mediation analysis, FV extraction, intervention, multi-context evaluation, vocabulary decoding).
+
+- **CS3**: Effect sizes are large and non-trivial (+52 percentage points for zero-shot, 10.5x improvement over baseline).
+
+- **CS4**: All design choices are explicitly justified with theoretical reasoning, prior work citations, and empirical ablation studies.
+
+- **CS5**: Results report standard deviations over 5 random seeds with clear methodology explanation.
