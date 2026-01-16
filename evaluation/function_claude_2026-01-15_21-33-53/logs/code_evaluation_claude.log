@@ -1,0 +1,34 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The Documentation-Only Evaluation is complete. Here's a summary:
+
+## Evaluation Results
+
+**Documentation Analyzed**: `/net/scratch2/smallyan/function_vectors_eval/documentation.pdf`
+- Type: ICLR 2024 Academic Research Paper
+- Title: "Function Vectors in Large Language Models"
+- Pages: 52
+- Executable code snippets found: **0**
+- Mathematical equations found: 17
+
+**Key Finding**: The documentation is a published academic paper containing mathematical equations and methodology descriptions, but **no executable code snippets**.
+
+**Per instructions**: When no code snippets exist in documentation, all evaluations return **NA**.
+
+### All Metrics: NA
+- Runnable%: NA
+- Incorrect%: NA
+- Redundant%: NA
+- Irrelevant%: NA
+- Correction-Rate%: NA
+
+### All Checklists: NA
+- C1 (Completeness): NA
+- C2 (Correctness): NA
+- C3 (Reproducibility): NA
+- C4 (Code Quality): NA
+
+### Output Files Generated:
+1. **Notebook**: `/net/scratch2/smallyan/open_question/function_vectors_eval/doc_only_evaluation/code_critic_evaluation.ipynb` (18,646 bytes)
+2. **JSON Summary**: `/net/scratch2/smallyan/open_question/function_vectors_eval/doc_only_evaluation/code_critic_summary.json` (1,407 bytes)

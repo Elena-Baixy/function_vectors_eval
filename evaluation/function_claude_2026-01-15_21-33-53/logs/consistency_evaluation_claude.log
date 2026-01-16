@@ -1,0 +1,32 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The consistency evaluation is complete. Here's a summary of the results:
+
+## Consistency Evaluation Complete
+
+I have completed the documentation-only consistency evaluation for the Function Vectors project.
+
+### Output Files Created:
+1. **Notebook**: `/net/scratch2/smallyan/function_vectors_eval/doc_only_evaluation/self_matching.ipynb`
+2. **JSON**: `/net/scratch2/smallyan/function_vectors_eval/doc_only_evaluation/consistency_evaluation.json`
+
+### Evaluation Results Summary:
+
+| Criterion | Status |
+|-----------|--------|
+| CS1: Conclusion vs Documented Results | **PASS** |
+| CS2: Plan vs Implementation | **PASS** |
+| CS3: Effect Size | **PASS** |
+| CS4: Justification | **PASS** |
+| CS5: Statistical Significance | **PASS** |
+
+### Key Findings:
+
+The documentation (ICLR 2024 paper "Function Vectors in Large Language Models") demonstrates strong internal consistency:
+
+- **CS1**: All conclusions about function vectors are directly supported by explicit quantitative results (Table 2 showing 50+ percentage point improvements)
+- **CS2**: Clear methodology in Section 2 is followed precisely in Section 3 experiments with detailed parameters in Appendix C
+- **CS3**: Effect sizes are non-trivial (e.g., 5.5% → 57.5% zero-shot accuracy, 6x improvement over baseline approach)
+- **CS4**: All key design choices are justified with references to prior work or empirical evidence
+- **CS5**: All results report standard deviations over 5 random seeds with clear methodology explanation
