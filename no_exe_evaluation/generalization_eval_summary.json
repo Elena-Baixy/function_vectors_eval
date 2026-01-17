@@ -1,0 +1,13 @@
+{
+  "Checklist": {
+    "GT1_ModelGeneralization": "FAIL",
+    "GT2_DataGeneralization": "FAIL",
+    "GT3_MethodGeneralization": "FAIL"
+  },
+
+  "Rationale": {
+    "GT1_ModelGeneralization": "The repository demonstrates empirical testing across multiple models (GPT-J 6B, GPT-NeoX 20B, Llama 2 7B/13B/70B) with pre-computed universal head sets in extract_utils.py. However, no explicit mechanistic reasoning is provided explaining WHY function vectors should transfer to different models. The observation that 'top heads cluster in middle layers across all models' is an empirical finding, not a theoretical justification based on architectural properties or invariances.",
+    "GT2_DataGeneralization": "The repository tests on 40+ diverse ICL tasks across abstractive and extractive categories with train/valid/test splits. However, no explicit assumptions or scope conditions are stated for when findings would hold on new/unseen data. There is no characterization of required data properties, distribution requirements, or task space boundaries where function vectors are expected to work.",
+    "GT3_MethodGeneralization": "A new method is proposed (causal mediation analysis to extract function vectors via summing top-AIE attention head outputs). The method is applied across multiple models and task types empirically. However, there is no explicit argument about which properties are required vs. incidental for the method to generalize, no theoretical basis for expecting it to work on new tasks, and no specification of boundary conditions or failure modes."
+  }
+}

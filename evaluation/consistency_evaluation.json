@@ -1,10 +1,70 @@
 {
-    "Checklist": {
-        "CS1_Results_vs_Conclusion": "PASS",
-        "CS2_Plan_vs_Implementation": "PASS"
+  "repository": "/net/scratch2/smallyan/function_vectors_eval",
+  "evaluation_date": "2026-01-16",
+  "evaluator": "Automated Consistency Checker",
+  "overall_result": "ALL PASS (5/5)",
+  "checklist_results": [
+    {
+      "id": "CS1",
+      "name": "Conclusions vs Original Results",
+      "status": "PASS",
+      "rationale": "All 8 major claims in the documentation are explicitly supported by specific tables/figures. Each conclusion references quantitative results: Table 2 (main FV performance), Figure 2 (layer sweep), Table 3 (portability), Table 4 (vocabulary reconstruction), Table 5 (vector algebra), Figure 3 (causal mediation), Table 6 (multi-model scaling), Table 7 (natural text). No unsupported claims were identified.",
+      "evidence_summary": "8/8 claims verified with table/figure references"
     },
-    "Rationale": {
-        "CS1_Results_vs_Conclusion": "All evaluable conclusions in the plan.md file match the results documented in the ICLR 2024 paper (documentation.pdf). Specific verified claims include: (1) Shuffled-label accuracy 90.8% vs 39.1% baseline - MATCHES, (2) Zero-shot accuracy 57.5% vs 5.5% baseline - MATCHES, (3) Vocabulary reconstruction results Country-Capital 58.1% vs 83.2% - MATCHES, (4) Vector algebra composition results Last-Country-Capital 0.60 vs 0.32 ICL - MATCHES, (5) Performance on 34 additional tasks 80.4% shuffled, 46.1% zero-shot for GPT-J - MATCHES, (6) Natural text portability results 55-68% for Antonym FV vs 0-3% baseline - MATCHES within reasonable range.",
-        "CS2_Plan_vs_Implementation": "A plan.md file exists with clear methodology steps and experiments. All 4 methodology steps are implemented: (1) Causal mediation analysis in compute_indirect_effect.py and extract_utils.py, (2) Testing across models (GPT-J, GPT-NeoX, Llama 2 7B/13B/70B) and 57 diverse ICL tasks, (3) FV internal structure analysis in vocab_reconstruction.py, (4) Vector algebra composition supported through FV extraction and intervention utilities. All 6 planned experiments are present: portability_eval.py, vocab_reconstruction.py, vector algebra (framework support), compute_indirect_effect.py, evaluate_function_vector.py, and natural_text_eval.py."
+    {
+      "id": "CS2",
+      "name": "Implementation Follows the Plan",
+      "status": "PASS",
+      "rationale": "All 8 methodology steps from the plan are fully implemented in the codebase. Specifically: (1) Causal mediation analysis is implemented in compute_indirect_effect.py with systematic sweeps over attention heads; (2) FV extraction via head summation is in extract_utils.py; (3) Multi-model support includes GPT-J, GPT-NeoX, Llama-2-7b/13b/70b with universal head sets; (4) Layer intervention via TraceDict hooks; (5) Shuffled-label/zero-shot/natural text evaluation modes; (6) Vocabulary reconstruction in vocab_reconstruction.py; (7) Vector algebra supported through standard tensor operations; (8) Portability across 120 template combinations in portability_eval.py. All 6 planned experiments have corresponding implementations with matching metrics.",
+      "evidence_summary": "8/8 methodology steps implemented, 6/6 experiments covered"
+    },
+    {
+      "id": "CS3",
+      "name": "Effect Size",
+      "status": "PASS",
+      "rationale": "All reported effects have substantial, non-trivial magnitude. The main FV result shows 51.7 percentage point gain on shuffled-label (90.8% vs 39.1% baseline, >2x improvement) and 52.0 percentage point gain on zero-shot (57.5% vs 5.5% baseline, ~10x improvement). Effects scale across models: Llama 2 70B achieves 93.0% shuffled-label and 74.2% zero-shot. Natural text evaluation shows ~59 percentage point gain over baselines. The vocabulary reconstruction gap (25.1 pp) supports the hypothesis that FVs encode more than output vocabulary. All 7 examined effects exceed 20 percentage points absolute gain, well above minimal meaningful thresholds.",
+      "evidence_summary": "7/7 effects non-trivial, all exceed 20pp absolute gain"
+    },
+    {
+      "id": "CS4",
+      "name": "Justification",
+      "status": "PASS",
+      "rationale": "All major design choices and conclusions are explicitly justified. Key hyperparameters justified: (1) EDIT_LAYER=9 derived from layer sweep experiments (Figure 2), (2) n_top_heads=10 based on AIE ranking and ablation studies, (3) N_TRIALS=100/25 standard practice for variance reduction. Task and model selection justified by diversity requirements and generality testing. Universal head sets computed via task-averaged AIE with scores provided. Filtering strategy justified as isolating task triggering from task learning. All 5 major conclusions reference specific experimental evidence. Notably, vector algebra results present nuanced conclusions acknowledging both successes and failures.",
+      "evidence_summary": "8/8 design choices justified, 5/5 conclusions supported"
+    },
+    {
+      "id": "CS5",
+      "name": "Statistical Significance",
+      "status": "PASS",
+      "rationale": "All major results include appropriate uncertainty estimates. The documentation reports standard deviations across 5 random seeds for main results (e.g., 90.8% \u00b1 0.9% for shuffled-label, 57.5% \u00b1 1.7% for zero-shot). Cross-model results include standard deviations. Portability evaluation aggregates across 20+ templates showing variance. Vocabulary reconstruction reports std across seeds and KL divergence values. Natural text results report ranges across templates (55-68% vs 0-3%). The implementation supports statistical rigor: N_TRIALS=100 for activations, n_seeds=5 for experiments, proper random state management via set_seed(). Validation/test split separation ensures unbiased filtering.",
+      "evidence_summary": "7/7 results with uncertainty, 4/4 statistical infrastructure elements"
     }
+  ],
+  "key_findings": {
+    "strengths": [
+      "Complete alignment between plan methodology and implementation code",
+      "All conclusions backed by specific quantitative evidence (tables/figures)",
+      "Effect sizes are substantial (>20pp gains across all major results)",
+      "Comprehensive uncertainty reporting (std across 5 seeds)",
+      "Transparent justification of hyperparameters through ablation studies"
+    ],
+    "areas_of_note": [
+      "Vector algebra composition shows mixed results (acknowledged in documentation)",
+      "Some experiments require significant compute (70B model evaluation)"
+    ]
+  },
+  "files_analyzed": {
+    "plan": "plan.md",
+    "documentation": "documentation.pdf (52 pages)",
+    "implementation": [
+      "notebooks/fv_demo.ipynb",
+      "src/compute_indirect_effect.py",
+      "src/evaluate_function_vector.py",
+      "src/portability_eval.py",
+      "src/vocab_reconstruction.py",
+      "src/utils/extract_utils.py",
+      "src/utils/intervention_utils.py",
+      "src/utils/eval_utils.py"
+    ]
+  }
 }

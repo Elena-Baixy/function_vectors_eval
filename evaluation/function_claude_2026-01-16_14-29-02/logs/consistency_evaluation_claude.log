@@ -1,0 +1,29 @@
+
+🚀 Launching Claude Code with Scribe notebook tools enabled...
+
+The Consistency Evaluation has been completed successfully. Here's a summary:
+
+## Evaluation Results
+
+**Repository**: `/net/scratch2/smallyan/function_vectors_eval`
+
+### Checklist Results (ALL PASS):
+
+| Checklist Item | Status | Evidence |
+|----------------|--------|----------|
+| **CS1**: Conclusions vs Results | PASS | 8/8 claims verified with table/figure references |
+| **CS2**: Implementation Follows Plan | PASS | 8/8 methodology steps + 6/6 experiments implemented |
+| **CS3**: Effect Size | PASS | 7/7 effects non-trivial (all >20pp gains) |
+| **CS4**: Justification | PASS | 8/8 design choices + 5/5 conclusions justified |
+| **CS5**: Statistical Significance | PASS | 7/7 results with uncertainty estimates |
+
+### Output Files Created:
+1. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/self_matching.ipynb`** - Analysis notebook with detailed evaluation
+2. **`/net/scratch2/smallyan/function_vectors_eval/evaluation/consistency_evaluation.json`** - JSON file with PASS/FAIL status and rationales
+
+### Key Findings:
+- Complete alignment between plan methodology and implementation code
+- All conclusions backed by specific quantitative evidence (Tables 2-7, Figures 2-3)
+- Effect sizes are substantial (51.7pp gain on shuffled-label, 52pp on zero-shot)
+- Comprehensive uncertainty reporting (standard deviations across 5 random seeds)
+- Transparent hyperparameter justification through ablation studies

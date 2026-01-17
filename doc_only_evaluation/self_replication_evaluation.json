@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "RP1_ImplementationReconstructability": "PASS",
+    "RP2_EnvironmentReproducibility": "PASS",
+    "RP3_DeterminismAndStability": "PASS"
+  },
+  "Rationale": {
+    "RP1_ImplementationReconstructability": "The documentation provides complete mathematical formulations for all key procedures including: (1) attention head output notation following Elhage et al. 2021, (2) task-conditioned mean activations (Eq. 2), (3) Causal Indirect Effect measurement (Eq. 3), (4) Average Indirect Effect calculation (Eq. 4), (5) Function Vector construction (Eq. 5). Appendix C details exact experimental parameters: 100 clean prompts for FV extraction, 25 corrupted prompts for AIE, 10 attention heads for GPT-J scaled proportionally for larger models, FV evaluation at layer ~|L|/3. Default prompt templates (Eq. 15) and 20 alternative templates (Table 8) are specified. Evaluation uses top-1 accuracy with clear filtering criteria. The documentation is operational with step-by-step procedures sufficient for reimplementation.",
+    "RP2_EnvironmentReproducibility": "All models are explicitly specified with HuggingFace IDs in Table 1: GPT-J (EleutherAI/gpt-j-6b), GPT-NeoX (EleutherAI/gpt-neox-20b), Llama 2 variants (meta-llama/Llama-2-*-hf). Dataset sources are cited with preprocessing details: Antonym/Synonym from Nguyen et al. 2017 (2,398/2,881 pairs), translation from Conneau et al. 2017 (4,705-5,200 pairs), SST-2 via Honovich et al. 2023 (1,167 entries), plus additional datasets from published sources (Table 9). Implementation uses HuggingFace Transformers library. Open-source code and data noted as available at functions.baulab.info.",
+    "RP3_DeterminismAndStability": "All main results include standard deviations computed over 5 random seeds (e.g., '90.8 \u00b1 0.9%' in Table 2). Shuffled-label prompt generation via random shuffling is documented. Results demonstrate stability across multiple model architectures (GPT-J, GPT-NeoX, Llama 2), model sizes (7B to 70B parameters), and 40+ diverse tasks. Layer-wise analysis shows reproducible patterns (peak performance at early-middle layers, dropoff at ~2/3 network depth) consistent across all tested configurations. Variance is systematically reported throughout the paper."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "evaluation_type": "generalization",
+  "documentation_path": "/net/scratch2/smallyan/function_vectors_eval/documentation.pdf",
+  "paper_title": "Function Vectors in Large Language Models",
+  "paper_authors": "Todd et al.",
+  "paper_venue": "ICLR 2024",
+  "evaluation_date": "2026-01-15",
+  "criteria": {
+    "GT1_model_generalization": {
+      "verdict": "PASS",
+      "rationale": "The documentation provides mechanistic explanations grounded in general transformer architectural properties (attention heads transporting task information via residual stream). Findings are validated across multiple model families (GPT-J, GPT-NeoX, Llama 2) and sizes (6B to 70B parameters), with consistent layer-wise patterns observed.",
+      "key_evidence": [
+        "Multi-model validation across GPT and Llama families",
+        "Consistent layer-wise FV localization patterns across architectures",
+        "Mechanistic grounding in residual stream view of transformer processing",
+        "Top 2-10 attention heads carry most task information across all models"
+      ]
+    },
+    "GT2_data_generalization": {
+      "verdict": "PASS",
+      "rationale": "The documentation explicitly states assumptions and conditions for data generalization. Scope is defined as 'simple input-output mappings,' with testing across 40+ diverse tasks and multiple data regimes (zero-shot, natural text, cross-task). Limitations are honestly acknowledged.",
+      "key_evidence": [
+        "Explicit scope definition: 'simple input-output mappings' abstractable to simple rules",
+        "40+ diverse ICL tasks tested",
+        "Multiple data regimes: zero-shot, natural text, shuffled labels, cross-task",
+        "Cross-prompt generalization with 10 different prompt sets per task",
+        "Quantitative results: 63.0% average accuracy for GPT-J, 61.3% for Llama-2-13B",
+        "Limitations acknowledged: 'FVs represent a simplification of ICL behavior'"
+      ]
+    },
+    "GT3_method_generalization": {
+      "verdict": "PASS",
+      "rationale": "The documentation clearly states conditions for method effectiveness (decoder-only autoregressive transformers with attention mechanisms) with reasonable justification via causal mediation analysis. Task scope is defined, and limitations are documented.",
+      "key_evidence": [
+        "Architectural requirements: decoder-only autoregressive transformers with residual stream",
+        "Assumptions validated via AIE (Average Indirect Effect) measurements",
+        "Task scope: word-level output tasks with consistent input-output structure",
+        "Multiple validation approaches: intervention experiments, ablation studies, cross-validation",
+        "Limitations documented: multi-token generation not fully explored, complex reasoning may require different mechanisms"
+      ]
+    }
+  },
+  "overall_assessment": {
+    "generalizability_rating": "STRONG",
+    "summary": "The Function Vectors paper demonstrates strong generalizability across all three dimensions evaluated. Model generalization is supported by validation across multiple model families and sizes. Data generalization is well-scoped with explicit assumptions and comprehensive testing. Method generalization is justified through causal analysis with clear architectural requirements and honest limitations.",
+    "pass_count": 3,
+    "fail_count": 0
+  }
+}
